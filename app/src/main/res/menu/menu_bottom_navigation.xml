@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_left"
+        android:icon="@drawable/bottom_btn1"
+        android:title="语音问答" />
+    <item
+        android:id="@+id/navigation_right"
+        android:icon="@drawable/bottom_btn2"
+        android:title="语音点读" />
+
+
+</menu>

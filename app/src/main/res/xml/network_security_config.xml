@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>
+<!--在Android9.0及以后版本，默认使用Https访问网络，这导致了不能使用Http，因此要配置允许使用Http-->

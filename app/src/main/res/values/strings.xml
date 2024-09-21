@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">每日畅享</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bingying_title">精选壁纸|每日一图</string>
+    <string name="news_title">每日新闻</string>
+    <string name="video_title">每日视频</string>
+    <string name="setting">设置</string>
+    <string name="exit">退出</string>
+    <string name="developer">wuleizhenshang</string>
+    <string name="nav_tip">Android | Java</string>
+    <string name="hot_info">热门资讯</string>
+    <string name="loading">加载中\.\.\.</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="daily_english_toolbar_title">每日经典英语范句</string>
+    <string name="daily_content_toolbar_title">每日一言</string>
+    <string name="daily_english_original_content">原文：%s</string>
+    <string name="daily_english_translate_content">译文：%s</string>
+    <string name="daily_english_source">来源：%s</string>
+    <string name="username">账号</string>
+    <string name="password">密码</string>
+    <string name="repassword">再次输入密码</string>
+    <string name="login">登&#12288;录</string>
+    <string name="register">注&#12288;册</string>
+    <string name="no_user_to_login">还未注册？去注册</string>
+    <string name="please_input_username">请输入账号</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="dialog_tip_title">温馨提示</string>
+    <string name="dialog_tip_register_text">多次登陆失败！是否要直接创建用户？</string>
+    <string name="press_twice_to_exit">再次按下退出应用程序</string>
+    <string name="app_bottom_title">Model · View · appViewModel</string>
+    <string name="navigation_menu_picture">图片</string>
+    <string name="navigation_menu_info">资讯</string>
+    <string name="navigation_menu_content">每日语句</string>
+
+
+    <!--Toast-->
+    <string name="register_fail">注册失败！</string>
+    <string name="register_success">注册成功，请使用注册的账号密码登录！</string>
+    <string name="login_success">登录成功！</string>
+    <string name="login_fail">登录失败！</string>
+</resources>

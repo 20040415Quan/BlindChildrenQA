@@ -27,11 +27,9 @@ public class HomepageActivity extends BaseActivity {
             public void onClick(View v) {
                 //TODO 拦截
                 if (BaseApplication.token.isEmpty()){
-                    Intent intent = new Intent(HomepageActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    jumpActivityFinish(MainActivity.class);
                 }else {
-                    Intent intent = new Intent(HomepageActivity.this, ChooseActivity.class);
-                    startActivity(intent);
+                    jumpActivityFinish(ChooseActivity.class);
                 }
             }
         });

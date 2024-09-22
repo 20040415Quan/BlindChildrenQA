@@ -95,17 +95,21 @@ public class BaseActivity extends AppCompatActivity {
      * 显示加载弹窗
      */
     protected void showLoading() {
-        loadingDialog = new LoadingDialog(this);
+        if (loadingDialog!=null&&loadingDialog.isShowing()){
+            return;
+        }
+        loadingDialog = new LoadingDialog(this,true,true);
         loadingDialog.show();
     }
 
     /**
      * 显示加载弹窗
-     *
-     * @param isClose true点击其他区域弹窗关闭，false不关闭
      */
-    protected void showLoading(boolean isClose) {
-        loadingDialog = new LoadingDialog(this, isClose);
+    protected void showLoading( boolean isCanTouchOutsideCancel, boolean isCanBackCancel) {
+        if (loadingDialog!=null&&loadingDialog.isShowing()){
+            return;
+        }
+        loadingDialog = new LoadingDialog(this, isCanTouchOutsideCancel, isCanBackCancel);
         loadingDialog.show();
     }
 

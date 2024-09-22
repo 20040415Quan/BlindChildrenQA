@@ -16,8 +16,11 @@ import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
@@ -30,16 +33,33 @@ public interface Api {
     @POST("api/user/sendCode")
     Observable<Result<Token>> sendCode(@Body RequestBody requestBody);
 
+    /**
+     * 语音转文字的接口
+     *
+     * @param token
+     * @param file
+     * @return
+     */
     @POST("api/qa/voice2words")
-    Observable<VoiceToTextResponse> voiceToText(
-            @Header("Authorization") String token,
-            @Part MultipartBody.Part file
-    );
+    @Multipart
+    Observable<VoiceToTextResponse> voiceToText(@Header("Authorization") String token, @Part MultipartBody.Part file);
 
-
+    /**
+     * 提问接口
+     *
+     * @return
+     */
     @POST("api/qa/chat")
-    Observable<QuestionResponse> postQuestion(@Part("question") RequestBody question);
+    @FormUrlEncoded
+    Observable<QuestionResponse> postQuestion(@Header("Authorization") String token, @Field("question") String question);
 
+    /**
+     * 获取聊天记录
+     * @param token
+     * @param current
+     * @param size
+     * @return
+     */
     @GET("api/qa/chat_history_list")
     Observable<ChatRecordsResponse> getChatRecords(
             @Header("Authorization") String token,

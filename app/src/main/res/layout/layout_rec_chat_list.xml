@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="15dp">
+
+    <ImageView
+        android:id="@+id/img_me"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="53dp"
+        android:background="@color/white"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/icon_ai" />
+
+    <TextView
+        android:id="@+id/tv_me"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_rectangle_30r_solid_3d6198f6"
+        android:ellipsize="end"
+        android:gravity="start|center_vertical"
+        android:maxWidth="800dp"
+        android:maxLines="1"
+        android:minWidth="496dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="#494C4F"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="@id/img_me"
+        app:layout_constraintEnd_toStartOf="@id/img_me"
+        app:layout_constraintTop_toTopOf="@id/img_me"
+        tools:text="测试ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd" />
+
+    <ImageView
+        android:id="@+id/img_ai"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="58dp"
+        android:background="@color/white"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_me"
+        tools:src="@drawable/icon" />
+
+    <TextView
+        android:id="@+id/tv_ai"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/bg_rectangle_30r_solid_ffffff"
+        android:ellipsize="end"
+        android:gravity="start|center_vertical"
+        android:maxWidth="800dp"
+        android:maxLines="1"
+        android:minWidth="496dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="#494C4F"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="@id/img_ai"
+        app:layout_constraintStart_toEndOf="@id/img_ai"
+        app:layout_constraintTop_toTopOf="@id/img_ai"
+        tools:text="测试ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 
 import com.example.androidmvvmtest.R;
 import com.example.androidmvvmtest.base.BaseActivity;
+import com.example.androidmvvmtest.base.BaseApplication;
 import com.example.androidmvvmtest.network.Interface.Api;
 import com.example.androidmvvmtest.network.api.NetworkApi;
 import com.example.androidmvvmtest.network.bean.request.LoginRequest;
@@ -137,6 +138,7 @@ public class MainActivity extends BaseActivity {
                     public void onSuccess(LoginResponse result) {
                         if (result.getCode() == 200) {
                             MVUtils.put(Constant.TOKEN, result.getData().getToken());
+                            BaseApplication.token = result.getData().getToken();
                             Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                             // 跳转到另一个界面
                             Intent intent = new Intent(MainActivity.this, ChooseActivity.class);

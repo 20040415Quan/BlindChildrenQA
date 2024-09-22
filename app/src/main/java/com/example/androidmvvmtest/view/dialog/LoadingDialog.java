@@ -2,7 +2,9 @@ package com.example.androidmvvmtest.view.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -21,55 +23,48 @@ public class LoadingDialog extends Dialog {
     TextView tvLoadingTx;
     ImageView ivLoading;
 
-    public LoadingDialog(Context context) {
-        this(context, R.style.loading_dialog, context.getString(R.string.loading));
-
+    public LoadingDialog(Context context, boolean isCanTouchOutsideCancel, boolean isCanBackCancel) {
+        this(context, R.style.loading_dialog, context.getString(R.string.loading), isCanTouchOutsideCancel, isCanBackCancel);
     }
 
-    public LoadingDialog(Context context, String string) {
-        this(context, R.style.loading_dialog, string);
+    public LoadingDialog(Context context, String string, boolean isCanTouchOutsideCancel, boolean isCanBackCancel) {
+        this(context, R.style.loading_dialog, string, isCanTouchOutsideCancel, isCanBackCancel);
     }
 
-    public LoadingDialog(Context context, boolean close) {
-        this(context, R.style.loading_dialog, context.getString(R.string.loading),close);
-    }
-
-    protected LoadingDialog(Context context, int theme, String string) {
+    protected LoadingDialog(Context context, int theme, String string, boolean isCanTouchOutsideCancel, boolean isCanBackCancel) {
         super(context, theme);
-        setCanceledOnTouchOutside(false);//点击其他区域时   true  关闭弹窗  false  不关闭弹窗
-//        setContentView(R.layout.dialog_loading);//加载布局
-//        tvLoadingTx = findViewById(R.id.tv_loading_tx);
-//        tvLoadingTx.setText(string);
-//        ivLoading = findViewById(R.id.iv_loading);
+        //点击外部关闭
+        setCanceledOnTouchOutside(isCanTouchOutsideCancel);
+        //加载布局
+        setContentView(R.layout.dialog_loading);
+        tvLoadingTx = findViewById(R.id.tv_loading_tx);
+        tvLoadingTx.setText(string);
+        ivLoading = findViewById(R.id.iv_loading);
         // 加载动画
         Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(
                 context, R.anim.loading_animation);
         // 使用ImageView显示动画
         ivLoading.startAnimation(hyperspaceJumpAnimation);
-
-        getWindow().getAttributes().gravity = Gravity.CENTER;//居中显示
-        getWindow().getAttributes().dimAmount = 0.5f;//背景透明度  取值范围 0 ~ 1
-
-
+        //居中显示
+        getWindow().getAttributes().gravity = Gravity.CENTER;
+        //背景透明度  取值范围 0 ~ 1
+        getWindow().getAttributes().dimAmount = 0.5f;
+        // 拦截返回键
+        setOnKeyListener(new OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+                if (i == KeyEvent.KEYCODE_BACK && isCanBackCancel) {
+                    dismiss();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
-    protected LoadingDialog(Context context, int theme, String string, boolean isOtherOnClickClose) {
-        super(context, theme);
-//        setCanceledOnTouchOutside(false);//点击其他区域时   true  关闭弹窗  false  不关闭弹窗
-//        setContentView(R.layout.dialog_loading);//加载布局
-//        tvLoadingTx = findViewById(R.id.tv_loading_tx);
-//        tvLoadingTx.setText(string);
-//        ivLoading = findViewById(R.id.iv_loading);
-        // 加载动画
-        Animation hyperspaceJumpAnimation = AnimationUtils.loadAnimation(
-                context, R.anim.loading_animation);
-        // 使用ImageView显示动画
-        ivLoading.startAnimation(hyperspaceJumpAnimation);
-
-        getWindow().getAttributes().gravity = Gravity.CENTER;//居中显示
-        getWindow().getAttributes().dimAmount = 0.5f;//背景透明度  取值范围 0 ~ 1
-
-
+    @Override
+    public void show() {
+        super.show();
     }
 
     //关闭弹窗

@@ -23,10 +23,6 @@ public class ChooseActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
-
-
-        KLog.i("TAGG","token:"+ MVUtils.getString(Constant.TOKEN));
-
         //提前缓存
         GlobalRepository.getVideoList(0,16).compose(
                 NetworkApi.applySchedulers(new BaseObserver<BaseResponse<VideoListBean>>() {
@@ -58,7 +54,6 @@ public class ChooseActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ChooseActivity.this, AnswerActivity.class);
                 startActivity(intent);
-
             }
         });
 
@@ -71,14 +66,7 @@ public class ChooseActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ChooseActivity.this, MusicActivity.class);
                 startActivity(intent);
-
             }
         });
-
-
-
-
     }
-
-
 }

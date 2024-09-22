@@ -100,17 +100,15 @@ public class BaseFragment extends Fragment {
      * 显示加载弹窗
      */
     protected void showLoading() {
-        loadingDialog = new LoadingDialog(context);
+        loadingDialog = new LoadingDialog(context, true, true);
         loadingDialog.show();
     }
 
     /**
      * 显示加载弹窗
-     *
-     * @param isClose true点击其他区域弹窗关闭，false不关闭
      */
-    protected void showLoading(boolean isClose) {
-        loadingDialog = new LoadingDialog(context, isClose);
+    protected void showLoading( boolean isCanTouchOutsideCancel, boolean isCanBackCancel) {
+        loadingDialog = new LoadingDialog(context, isCanTouchOutsideCancel, isCanBackCancel);
         loadingDialog.show();
     }
 

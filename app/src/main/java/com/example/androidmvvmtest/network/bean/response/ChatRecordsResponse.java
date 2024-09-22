@@ -1,82 +1,105 @@
 package com.example.androidmvvmtest.network.bean.response;
 
-import android.content.Context;
-import android.util.TimeUtils;
-
 import java.util.List;
 
 public class ChatRecordsResponse {
-    private int code;
+
+    private Integer code;
     private String msg;
     private Data data;
 
-    public static class Data {
-        private int total;
-        private int lastPage;
-        private int current;
-        private int size;
-        private List<Record> records;
+    public Integer getCode() {
+        return code;
+    }
 
-        public int getTotal() {
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public Data getData() {
+        return data;
+    }
+
+    public void setData(Data data) {
+        this.data = data;
+    }
+
+    public static class Data {
+        private Integer total;
+        private Integer lastPage;
+        private Integer current;
+        private Integer size;
+        private List<Data.ChatBean> data;
+
+        public Integer getTotal() {
             return total;
         }
 
-        public void setTotal(int total) {
+        public void setTotal(Integer total) {
             this.total = total;
         }
 
-        public int getLastPage() {
+        public Integer getLastPage() {
             return lastPage;
         }
 
-        public void setLastPage(int lastPage) {
+        public void setLastPage(Integer lastPage) {
             this.lastPage = lastPage;
         }
 
-        public int getCurrent() {
+        public Integer getCurrent() {
             return current;
         }
 
-        public void setCurrent(int current) {
+        public void setCurrent(Integer current) {
             this.current = current;
         }
 
-        public int getSize() {
+        public Integer getSize() {
             return size;
         }
 
-        public void setSize(int size) {
+        public void setSize(Integer size) {
             this.size = size;
         }
 
-        public List<Record> getRecords() {
-            return records;
+        public List<Data.ChatBean> getData() {
+            return data;
         }
 
-        public void setRecords(List<Record> records) {
-            this.records = records;
+        public void setData(List<Data.ChatBean> data) {
+            this.data = data;
         }
 
-        public static class Record {
-            private int id;
-            private int uid;
+        public static class ChatBean {
+            private Integer id;
+            private Integer uid;
             private String question;
             private String answer;
             private String time;
+            private String audioPath;
 
-            public int getId() {
+            public Integer getId() {
                 return id;
             }
 
-            public void setId(int id) {
+            public void setId(Integer id) {
                 this.id = id;
             }
 
-            public int getUid() {
+            public Integer getUid() {
                 return uid;
             }
 
-            public void setUid(int uid) {
+            public void setUid(Integer uid) {
                 this.uid = uid;
             }
 
@@ -104,34 +127,13 @@ public class ChatRecordsResponse {
                 this.time = time;
             }
 
-            public boolean isUser() { return uid != 1; }
+            public String getAudioPath() {
+                return audioPath;
+            }
 
-
+            public void setAudioPath(String audioPath) {
+                this.audioPath = audioPath;
+            }
         }
-    }
-
-    // Getter 和 Setter 方法
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public Data getData() {
-        return data;
-    }
-
-    public void setData(Data data) {
-        this.data = data;
     }
 }
